@@ -1,0 +1,55 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// Function to encrypt a file using a simple Caesar cipher approach
+void encryptFile(const string& inputFile, const string& outputFile, int key) {
+    ifstream in(inputFile);   // Open input file
+    ofstream out(outputFile); // Open output file
+    char ch;
+    while (in.get(ch)) {
+        out.put(ch + key);    // Encrypt character by shifting
+    }
+    in.close();
+    out.close();
+    cout << "File encrypted successfully.\n";
+}
+
+// Function to decrypt a file using the reverse of the Caesar cipher
+void decryptFile(const string& inputFile, const string& outputFile, int key) {
+    ifstream in(inputFile);   // Open encrypted file
+    ofstream out(outputFile); // Output decrypted file
+    char ch;
+    while (in.get(ch)) {
+        out.put(ch - key);    // Reverse the shift
+    }
+    in.close();
+    out.close();
+    cout << "File decrypted successfully.\n";
+}
+
+// Main function to drive the encryption/decryption menu
+int main() {
+    int choice, key;
+    string inputFile, outputFile;
+
+    cout << "--- FILE ENCRYPTION / DECRYPTION ---\n";
+    cout << "1. Encrypt\n2. Decrypt\nChoose option: ";
+    cin >> choice;
+
+    cout << "Enter input file name: ";
+    cin >> inputFile;
+    cout << "Enter output file name: ";
+    cin >> outputFile;
+    cout << "Enter key (number): ";
+    cin >> key;
+
+    if (choice == 1)
+        encryptFile(inputFile, outputFile, key);   // Call encryption
+    else if (choice == 2)
+        decryptFile(inputFile, outputFile, key);   // Call decryption
+    else
+        cout << "Invalid choice.\n";
+
+    return 0;
+}
