@@ -1,8 +1,4 @@
----
 
-## 📁 Task 2: File Encryption & Decryption – README.md
-
-markdown
 # 🔐 Task 2 – File Encryption/Decryption (C++)
 
 This project is part of the **CodeAlpha C++ Internship** and focuses on basic encryption techniques using **Caesar Cipher** to protect text files.
